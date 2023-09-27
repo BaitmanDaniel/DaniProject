@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <title>eli project</title>
+</head>
+<body>
+  <div class="container">
+
+  
+  <div class="p-3">
+    <h1 class="fs-1">API documention</h1>
+  </div>
+  <div class="py-3">
+    <h2 class="fs-3">Toys API</h2>
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>HTTP Method</th>
+        <th>Route</th>
+        <th>Description</th>
+        <th>Parameters / Request Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GET</td>
+        <td>/toys</td>
+        <td>Returns a list of toys according to the query parameters.</td>
+        <td>
+          <ul>
+            <li>?page (optional): page number to return (default: 1).
+              <a href="https://eli-toys.cyclic.cloud/toys?page=2">https://eli-toys.cyclic.cloud/toys?page=2</a>
+            </li>
+            <li>?s (optional): search in name and in info.
+              <a href="https://eli-toys.cyclic.cloud/toys?s=c">https://eli-toys.cyclic.cloud/toys?s=c</a>
+            </li>
+            <li>?cat (optional): filter by category.
+              <a href="https://eli-toys.cyclic.cloud/toys?cat=d">https://eli-toys.cyclic.cloud/toys?cat=d</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/toys/single/:id</td>
+        <td>Returns a single toy by its ID.</td>
+        <td><ul>
+          <li>
+            id: the ID of the toy to retrieve.
+            <a href="https://eli-toys.cyclic.cloud/toys/single/6509695c7fc04599519ea861">https://eli-toys.cyclic.cloud/toys/single/6509695c7fc04599519ea861</a>
+          </li>
+        </ul></td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/toys</td>
+        <td>Adds a new toy.
+          Token is required!</td>
+        <td>
+          <ul>
+            <li>
+              Request Body: Toy data to be added in the following format.
+            </li>
+            <li>
+              price: 1-999999
+            </li>
+            <li>
+              img_url is allowed and not required <br>
+              {<br>
+               name: String,<br>
+               info: String,<br>
+               category: String,<br>
+               price: Number,<br>
+               img_url: String <br>
+              }
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>PUT</td>
+        <td>/toys/:idEdit</td>
+        <td>Updates an existing toy.
+          Token is required!</td>
+        <td>
+          <ul>
+            <li>idEdit: the ID of the toy to update.</li>
+            <li>Request Body: Toy data to be updated in the following format.</li>
+            <li>price: 1-999999</li>
+            <li>
+              img_url is allowed and not required <br>
+              {<br>
+               name: String,<br>
+               info: String,<br>
+               category: String,<br>
+               price: Number,<br>
+               img_url: String <br>
+              }
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>/toys/:idDel</td>
+        <td>Deletes a toy by its ID.
+          Token is required!</td>
+        <td>
+          <ul>
+            <li>idDel: the ID of the toy to delete.</li>
+          </ul>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <div class="py-3">
+    <h2 class="fs-3">Users API</h2>
+  </div>
+  <table >
+    <thead>
+      <tr>
+        <th>HTTP Method</th>
+        <th>Route</th>
+        <th>Description</th>
+        <th>Parameters / Request Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GET</td>
+        <td>/users</td>
+        <td>Test endpoint to check if the server is running</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/users/myInfo</td>
+        <td>Get the information for the authenticated user (requires authentication)</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/users</td>
+        <td>Create a new user</td>
+        <td>{ name: String, email: String, password: String }</td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/users/login</td>
+        <td>Authenticate a user and receive a JWT token in response</td>
+        <td>{ email: String, password: String }</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="py-3 text-center">
+    <p>Create by Dani Baitman</p>
+  </div>
+</div>
+</body>
+</html>
